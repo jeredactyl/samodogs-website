@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f9f4;
+  color: #333;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+header.hero {
+  background-image: url("images/dog-hero.jpg");
+  background-size: cover;
+  color: white;
+  padding: 40px;
+  text-align: center;
+}
+
+nav {
+  background-color: #3a5a40;
+  text-align: center;
+  padding: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+section {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 0.8em;
+  color: #555;
+}
+
+h1,
+h2 {
+  color: #3a5a40;
+}
