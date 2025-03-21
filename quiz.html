@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz | Test Your Knowledge - SAMO Dogs</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <nav aria-label="Breadcrumb"><a href="index.html">Home</a> &gt; Quiz</nav>
+
+    <section>
+      <h1>🐾 Test Your Knowledge</h1>
+      <form id="quiz">
+        <p>What is the recommended leash length on trails?</p>
+        <input type="radio" id="q1a" name="q1" value="3ft" />
+        <label for="q1a">3 feet</label><br />
+        <input type="radio" id="q1b" name="q1" value="6ft" />
+        <label for="q1b">6 feet</label><br />
+        <input type="radio" id="q1c" name="q1" value="12ft" />
+        <label for="q1c">12 feet</label><br />
+
+        <button type="button" onclick="checkQuiz()">Submit</button>
+        <p id="quiz-result"></p>
+      </form>
+    </section>
+
+    <script>
+      function checkQuiz() {
+        const selected = document.querySelector('input[name="q1"]:checked');
+        const result = document.getElementById("quiz-result");
+        if (!selected) {
+          result.textContent = "Please select an answer.";
+          return;
+        }
+        const answer = selected.value;
+        result.textContent =
+          answer === "6ft"
+            ? "✅ Correct! The recommended leash length is 6 feet."
+            : "❌ Incorrect. The correct answer is 6 feet.";
+      }
+    </script>
+
+    <footer>
+      <p>&copy; 2025 samodogs.org | Santa Monica Mountains</p>
+    </footer>
+  </body>
+</html>

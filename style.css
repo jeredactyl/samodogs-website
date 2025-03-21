@@ -1,49 +1,139 @@
+/* Updated CSS inspired by samofund.org */
+
+/* Base Styles */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f4f9f4;
+  font-family: "Roboto", sans-serif;
+  background-color: #fff;
   color: #333;
   margin: 0 auto;
   padding: 0;
-  max-width: 800px;
+  max-width: 1200px; /* Expanded max width for a more modern feel */
   line-height: 1.6;
 }
 
+/* Hero Section */
 header.hero {
-  background-image: url("images/dog-hero.jpg");
+  position: relative;
+  background-image: url("images/hero-trail.jpg"); /* Replace with a vibrant, scenic photo */
   background-size: cover;
-  color: white;
-  padding: 40px;
+  background-position: center;
+  color: #fff;
+  padding: 100px 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+header.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4); /* Overlay for better text readability */
+  z-index: 1;
+}
+
+header.hero h1,
+header.hero p {
+  position: relative;
+  z-index: 2;
+}
+
+/* Navigation */
 nav {
-  background-color: #3a5a40;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #2a2a2a; /* Darker background for a sophisticated look */
+  color: #fff;
   text-align: center;
-  padding: 10px;
+  padding: 15px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 nav a {
-  color: white;
+  color: #fff;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 15px;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
+nav a:hover {
+  color: #f4c542; /* Bright accent color */
+}
+
+/* Section Styles */
 section {
-  padding: 20px;
-  margin-bottom: 20px;
-  background-color: white;
+  padding: 40px 20px;
+  margin-bottom: 40px;
+  background: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-footer {
-  text-align: center;
-  padding: 10px;
-  font-size: 0.8em;
-  color: #555;
+/* Responsive Images */
+.responsive-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 20px;
 }
 
+/* Headings & Icons */
 h1,
 h2 {
-  color: #3a5a40;
+  color: #2a2a2a;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+  background: #f4c542;
+  color: #2a2a2a;
+  padding: 15px 30px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #e0b933;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.9em;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+footer a {
+  color: #f4c542;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
 }

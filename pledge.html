@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pledge to Hike Responsibly | SAMO Dogs</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <nav aria-label="Breadcrumb">
+      <a href="index.html">Home</a> &gt; Pledge to Hike Responsibly
+    </nav>
+
+    <section>
+      <h1>Pledge to Hike Responsibly</h1>
+      <p>
+        By pledging, you commit to following guidelines that help protect our
+        trails and wildlife.
+      </p>
+
+      <form id="pledge-form">
+        <label for="name">Your Name:</label><br />
+        <input type="text" id="name" name="name" required /><br /><br />
+
+        <label for="email">Email Address:</label><br />
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <p>
+          <input type="checkbox" id="agree" name="agree" required />
+          <label for="agree"
+            >I pledge to follow responsible hiking practices and to always keep
+            my dog on a leash where required.</label
+          >
+        </p>
+
+        <button type="submit">Submit Pledge</button>
+      </form>
+
+      <p id="pledge-result"></p>
+    </section>
+
+    <script>
+      const pledgeForm = document.getElementById("pledge-form");
+      pledgeForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const name = document.getElementById("name").value;
+        document.getElementById(
+          "pledge-result"
+        ).textContent = `Thank you, ${name}, for pledging to hike responsibly!`;
+        pledgeForm.reset();
+      });
+    </script>
+
+    <footer>
+      <p>&copy; 2025 samodogs.org | Santa Monica Mountains</p>
+    </footer>
+  </body>
+</html>
