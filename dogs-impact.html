@@ -9,6 +9,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
   </head>
   <body>
     <nav aria-label="Breadcrumb">
@@ -30,7 +34,9 @@
         science tells us:
       </p>
 
-      <h2>Wildlife Stress and Habitat Disturbance</h2>
+      <h2>
+        <i class="fa-solid fa-leaf"></i> Wildlife Stress and Habitat Disturbance
+      </h2>
       <ul>
         <li>
           <strong>Dogs trigger fear responses:</strong> Many animals perceive
@@ -48,7 +54,7 @@
         </li>
       </ul>
 
-      <h2>Predation Risks</h2>
+      <h2><i class="fa-solid fa-exclamation-triangle"></i> Predation Risks</h2>
       <ul>
         <li>
           <strong>Direct wildlife harm:</strong> Off-leash dogs may chase or
@@ -60,7 +66,7 @@
         </li>
       </ul>
 
-      <h2>Disease Transmission</h2>
+      <h2><i class="fa-solid fa-virus"></i> Disease Transmission</h2>
       <ul>
         <li>
           <strong>Spread of diseases:</strong> Dogs can transmit illnesses such
@@ -72,7 +78,7 @@
         </li>
       </ul>
 
-      <h2>Erosion and Habitat Damage</h2>
+      <h2><i class="fa-solid fa-tree"></i> Erosion and Habitat Damage</h2>
       <ul>
         <li>
           <strong>Physical damage:</strong> Off-trail dog activity can trample
@@ -84,7 +90,10 @@
         </li>
       </ul>
 
-      <h2>Benefits of Responsible Dog Management</h2>
+      <h2>
+        <i class="fa-solid fa-thumbs-up"></i> Benefits of Responsible Dog
+        Management
+      </h2>
       <p>
         Studies consistently show that enforced dog regulations, such as leash
         rules or designated dog-free areas, help:
@@ -95,7 +104,10 @@
         <li>Reduce environmental degradation.</li>
       </ul>
 
-      <h2>Wildlife in the Santa Monica Mountains</h2>
+      <h2>
+        <i class="fa-solid fa-binoculars"></i> Wildlife in the Santa Monica
+        Mountains
+      </h2>
       <p>Common species affected include:</p>
       <ul>
         <li>
@@ -111,14 +123,16 @@
         </li>
       </ul>
 
-      <h2>Real Story: A Close Encounter</h2>
+      <h2>
+        <i class="fa-solid fa-book-open"></i> Real Story: A Close Encounter
+      </h2>
       <p>
         During a hike in Cheeseboro Canyon, local hiker Lisa Martinez witnessed
         a startled deer bolt across the trail after a loose dog gave chase. This
         incident underscored the vital importance of keeping dogs on a leash.
       </p>
 
-      <h2>Scientific Sources:</h2>
+      <h2><i class="fa-solid fa-flask"></i> Scientific Sources:</h2>
       <ul>
         <li>Banks & Bryant (2007), <em>Biology Letters</em>.</li>
         <li>
@@ -139,5 +153,58 @@
     <footer>
       <p>&copy; 2025 samodogs.org | Santa Monica Mountains</p>
     </footer>
+    <!-- Code injected by live-server -->
+    <script>
+      // <![CDATA[  <-- For SVG support
+      if ("WebSocket" in window) {
+        (function () {
+          function refreshCSS() {
+            var sheets = [].slice.call(document.getElementsByTagName("link"));
+            var head = document.getElementsByTagName("head")[0];
+            for (var i = 0; i < sheets.length; ++i) {
+              var elem = sheets[i];
+              var parent = elem.parentElement || head;
+              parent.removeChild(elem);
+              var rel = elem.rel;
+              if (
+                elem.href &&
+                (typeof rel != "string" ||
+                  rel.length == 0 ||
+                  rel.toLowerCase() == "stylesheet")
+              ) {
+                var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, "");
+                elem.href =
+                  url +
+                  (url.indexOf("?") >= 0 ? "&" : "?") +
+                  "_cacheOverride=" +
+                  new Date().valueOf();
+              }
+              parent.appendChild(elem);
+            }
+          }
+          var protocol =
+            window.location.protocol === "http:" ? "ws://" : "wss://";
+          var address =
+            protocol + window.location.host + window.location.pathname + "/ws";
+          var socket = new WebSocket(address);
+          socket.onmessage = function (msg) {
+            if (msg.data == "reload") window.location.reload();
+            else if (msg.data == "refreshcss") refreshCSS();
+          };
+          if (
+            sessionStorage &&
+            !sessionStorage.getItem("IsThisFirstTime_Log_From_LiveServer")
+          ) {
+            console.log("Live reload enabled.");
+            sessionStorage.setItem("IsThisFirstTime_Log_From_LiveServer", true);
+          }
+        })();
+      } else {
+        console.error(
+          "Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading."
+        );
+      }
+      // ]]>
+    </script>
   </body>
 </html>

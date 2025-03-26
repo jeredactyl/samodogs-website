@@ -137,3 +137,9 @@ footer a:hover {
 html {
   scroll-behavior: smooth;
 }
+
+.fa-solid {
+  font-size: 1.5em;
+  margin-right: 0.5em;
+  vertical-align: middle;
+}

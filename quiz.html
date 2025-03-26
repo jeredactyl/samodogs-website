@@ -6,23 +6,148 @@
     <title>Quiz | Test Your Knowledge - SAMO Dogs</title>
     <link rel="stylesheet" href="style.css" />
     <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
   </head>
   <body>
     <nav aria-label="Breadcrumb"><a href="index.html">Home</a> &gt; Quiz</nav>
 
     <section>
-      <h1>🐾 Test Your Knowledge</h1>
+      <h1><i class="fa-solid fa-question-circle"></i> Test Your Knowledge</h1>
       <form id="quiz">
-        <p>What is the recommended leash length on trails?</p>
-        <input type="radio" id="q1a" name="q1" value="3ft" />
-        <label for="q1a">3 feet</label><br />
-        <input type="radio" id="q1b" name="q1" value="6ft" />
-        <label for="q1b">6 feet</label><br />
-        <input type="radio" id="q1c" name="q1" value="12ft" />
-        <label for="q1c">12 feet</label><br />
+        <!-- Question 1 -->
+        <fieldset>
+          <legend>1. What is the recommended leash length on trails?</legend>
+          <input type="radio" id="q1a" name="q1" value="3ft" />
+          <label for="q1a">3 feet</label><br />
+          <input type="radio" id="q1b" name="q1" value="6ft" />
+          <label for="q1b">6 feet</label><br />
+          <input type="radio" id="q1c" name="q1" value="12ft" />
+          <label for="q1c">12 feet</label>
+        </fieldset>
+
+        <!-- Question 2 -->
+        <fieldset>
+          <legend>2. Why should dogs remain on a leash on trails?</legend>
+          <input type="radio" id="q2a" name="q2" value="protect" />
+          <label for="q2a">To protect wildlife</label><br />
+          <input type="radio" id="q2b" name="q2" value="free" />
+          <label for="q2b">To let them run free</label><br />
+          <input type="radio" id="q2c" name="q2" value="sleep" />
+          <label for="q2c">To prevent them from falling asleep</label>
+        </fieldset>
+
+        <!-- Question 3 -->
+        <fieldset>
+          <legend>
+            3. What is one consequence of off-leash dog behavior on trails?
+          </legend>
+          <input type="radio" id="q3a" name="q3" value="improved" />
+          <label for="q3a">Improved ecosystem</label><br />
+          <input type="radio" id="q3b" name="q3" value="stress" />
+          <label for="q3b">Wildlife stress</label><br />
+          <input type="radio" id="q3c" name="q3" value="biodiversity" />
+          <label for="q3c">Enhanced biodiversity</label>
+        </fieldset>
+
+        <!-- Question 4 -->
+        <fieldset>
+          <legend>
+            4. What should you always carry to dispose of your dog's waste?
+          </legend>
+          <input type="radio" id="q4a" name="q4" value="biodegradable" />
+          <label for="q4a">Biodegradable waste bags</label><br />
+          <input type="radio" id="q4b" name="q4" value="plastic" />
+          <label for="q4b">Regular plastic bags</label><br />
+          <input type="radio" id="q4c" name="q4" value="paper" />
+          <label for="q4c">Paper towels</label>
+        </fieldset>
+
+        <!-- Question 5 -->
+        <fieldset>
+          <legend>
+            5. What is one benefit of following responsible hiking practices
+            with your dog?
+          </legend>
+          <input type="radio" id="q5a" name="q5" value="diversity" />
+          <label for="q5a">Increased wildlife diversity</label><br />
+          <input type="radio" id="q5b" name="q5" value="noise" />
+          <label for="q5b">Higher noise levels</label><br />
+          <input type="radio" id="q5c" name="q5" value="crowded" />
+          <label for="q5c">More crowded trails</label>
+        </fieldset>
+
+        <!-- Question 6 -->
+        <fieldset>
+          <legend>
+            6. Before heading out on a hike with your dog, what should you
+            verify?
+          </legend>
+          <input type="radio" id="q6a" name="q6" value="policies" />
+          <label for="q6a">The pet policies of the park</label><br />
+          <input type="radio" id="q6b" name="q6" value="dog" />
+          <label for="q6b">That your dog likes hiking</label><br />
+          <input type="radio" id="q6c" name="q6" value="sunny" />
+          <label for="q6c">The weather is sunny</label>
+        </fieldset>
+
+        <!-- Question 7 -->
+        <fieldset>
+          <legend>
+            7. What is one direct effect of dogs chasing wildlife?
+          </legend>
+          <input type="radio" id="q7a" name="q7" value="exercise" />
+          <label for="q7a">They help wildlife exercise</label><br />
+          <input type="radio" id="q7b" name="q7" value="reduce" />
+          <label for="q7b">They reduce wildlife breeding success</label><br />
+          <input type="radio" id="q7c" name="q7" value="noharm" />
+          <label for="q7c">They cause no harm</label>
+        </fieldset>
+
+        <!-- Question 8 -->
+        <fieldset>
+          <legend>8. What is one indirect effect of dogs on wildlife?</legend>
+          <input type="radio" id="q8a" name="q8" value="reduced" />
+          <label for="q8a">Reduced stress levels</label><br />
+          <input type="radio" id="q8b" name="q8" value="extra" />
+          <label for="q8b">Extra energy expenditure by wildlife</label><br />
+          <input type="radio" id="q8c" name="q8" value="improved" />
+          <label for="q8c">Improved habitat quality</label>
+        </fieldset>
+
+        <!-- Question 9 -->
+        <fieldset>
+          <legend>
+            9. Which factor contributes to water pollution on trails?
+          </legend>
+          <input type="radio" id="q9a" name="q9" value="dog waste" />
+          <label for="q9a">Dog waste</label><br />
+          <input type="radio" id="q9b" name="q9" value="sunlight" />
+          <label for="q9b">Excess sunlight</label><br />
+          <input type="radio" id="q9c" name="q9" value="birdchirps" />
+          <label for="q9c">Bird chirps</label>
+        </fieldset>
+
+        <!-- Question 10 -->
+        <fieldset>
+          <legend>
+            10. What is one key reason to follow trail regulations regarding
+            dogs?
+          </legend>
+          <input type="radio" id="q10a" name="q10" value="safety" />
+          <label for="q10a"
+            >To ensure safety and preserve natural habitats</label
+          ><br />
+          <input type="radio" id="q10b" name="q10" value="annoy" />
+          <label for="q10b">To annoy fellow hikers</label><br />
+          <input type="radio" id="q10c" name="q10" value="crowded" />
+          <label for="q10c">To make the trail crowded</label>
+        </fieldset>
 
         <button type="button" onclick="checkQuiz()">Submit</button>
         <p id="quiz-result"></p>
@@ -31,17 +156,38 @@
 
     <script>
       function checkQuiz() {
-        const selected = document.querySelector('input[name="q1"]:checked');
-        const result = document.getElementById("quiz-result");
-        if (!selected) {
-          result.textContent = "Please select an answer.";
-          return;
+        const correctAnswers = {
+          q1: "6ft",
+          q2: "protect",
+          q3: "stress",
+          q4: "biodegradable",
+          q5: "diversity",
+          q6: "policies",
+          q7: "reduce",
+          q8: "extra",
+          q9: "dog waste",
+          q10: "safety",
+        };
+
+        let score = 0;
+        let totalQuestions = Object.keys(correctAnswers).length;
+
+        for (let question in correctAnswers) {
+          const selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+          );
+          if (selected && selected.value === correctAnswers[question]) {
+            score++;
+          }
         }
-        const answer = selected.value;
+
+        const result = document.getElementById("quiz-result");
         result.textContent =
-          answer === "6ft"
-            ? "✅ Correct! The recommended leash length is 6 feet."
-            : "❌ Incorrect. The correct answer is 6 feet.";
+          "You got " +
+          score +
+          " out of " +
+          totalQuestions +
+          " questions correct.";
       }
     </script>
 
