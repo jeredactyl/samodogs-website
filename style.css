@@ -76,12 +76,20 @@ section {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Images */
 .responsive-img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  border-radius: 8px;
-  margin-bottom: 20px;
+  display: block;
+  margin: 0 auto; /* centers the image horizontally */
+}
+
+.responsive-cropped-img {
+  width: 100%;
+  height: 300px; /* Adjust the height as desired */
+  object-fit: cover;
+  object-position: center bottom; /* Prioritizes showing more of the bottom */
+  display: block;
+  margin: 0 auto; /* centers the image */
 }
 
 /* Headings & Icons */
