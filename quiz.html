@@ -33,32 +33,37 @@
 
         <!-- Question 2 -->
         <fieldset>
-          <legend>2. Why should dogs remain on a leash on trails?</legend>
-          <input type="radio" id="q2a" name="q2" value="protect" />
-          <label for="q2a">To protect wildlife</label><br />
-          <input type="radio" id="q2b" name="q2" value="free" />
-          <label for="q2b">To let them run free</label><br />
-          <input type="radio" id="q2c" name="q2" value="sleep" />
-          <label for="q2c">To prevent them from falling asleep</label>
+          <legend>
+            2. Why is it important to keep your dog on a leash while hiking?
+          </legend>
+          <input type="radio" id="q2a" name="q2" value="safety" />
+          <label for="q2a"
+            >To protect your dog, other hikers, and local wildlife</label
+          ><br />
+          <input type="radio" id="q2b" name="q2" value="roam" />
+          <label for="q2b">To let your dog roam freely</label><br />
+          <input type="radio" id="q2c" name="q2" value="ignore" />
+          <label for="q2c">Because dogs naturally ignore trail rules</label>
         </fieldset>
 
         <!-- Question 3 -->
         <fieldset>
           <legend>
-            3. What is one consequence of off-leash dog behavior on trails?
+            3. What is one direct consequence of dogs being off-leash on trails?
           </legend>
           <input type="radio" id="q3a" name="q3" value="improved" />
           <label for="q3a">Improved ecosystem</label><br />
           <input type="radio" id="q3b" name="q3" value="stress" />
           <label for="q3b">Wildlife stress</label><br />
-          <input type="radio" id="q3c" name="q3" value="biodiversity" />
+          <input type="radio" id="q3c" name="q3" value="benefit" />
           <label for="q3c">Enhanced biodiversity</label>
         </fieldset>
 
         <!-- Question 4 -->
         <fieldset>
           <legend>
-            4. What should you always carry to dispose of your dog's waste?
+            4. What is the best option to carry for proper disposal of your
+            dog's waste on trails?
           </legend>
           <input type="radio" id="q4a" name="q4" value="biodegradable" />
           <label for="q4a">Biodegradable waste bags</label><br />
@@ -71,8 +76,8 @@
         <!-- Question 5 -->
         <fieldset>
           <legend>
-            5. What is one benefit of following responsible hiking practices
-            with your dog?
+            5. Following responsible dog hiking practices can help preserve
+            natural habitats. What is one environmental benefit?
           </legend>
           <input type="radio" id="q5a" name="q5" value="diversity" />
           <label for="q5a">Increased wildlife diversity</label><br />
@@ -85,33 +90,37 @@
         <!-- Question 6 -->
         <fieldset>
           <legend>
-            6. Before heading out on a hike with your dog, what should you
-            verify?
+            6. Before heading out on a hike with your dog, what is an important
+            detail to verify?
           </legend>
           <input type="radio" id="q6a" name="q6" value="policies" />
           <label for="q6a">The pet policies of the park</label><br />
           <input type="radio" id="q6b" name="q6" value="dog" />
-          <label for="q6b">That your dog likes hiking</label><br />
-          <input type="radio" id="q6c" name="q6" value="sunny" />
-          <label for="q6c">The weather is sunny</label>
+          <label for="q6b">That your dog enjoys hiking</label><br />
+          <input type="radio" id="q6c" name="q6" value="weather" />
+          <label for="q6c">The weather conditions</label>
         </fieldset>
 
         <!-- Question 7 -->
         <fieldset>
           <legend>
-            7. What is one direct effect of dogs chasing wildlife?
+            7. What is one direct risk of allowing dogs to chase wildlife?
           </legend>
           <input type="radio" id="q7a" name="q7" value="exercise" />
           <label for="q7a">They help wildlife exercise</label><br />
-          <input type="radio" id="q7b" name="q7" value="reduce" />
-          <label for="q7b">They reduce wildlife breeding success</label><br />
+          <input type="radio" id="q7b" name="q7" value="harm" />
+          <label for="q7b">They can injure or cause stress to wildlife</label
+          ><br />
           <input type="radio" id="q7c" name="q7" value="noharm" />
           <label for="q7c">They cause no harm</label>
         </fieldset>
 
         <!-- Question 8 -->
         <fieldset>
-          <legend>8. What is one indirect effect of dogs on wildlife?</legend>
+          <legend>
+            8. What is one indirect effect of disturbed wildlife behavior due to
+            off-leash dogs?
+          </legend>
           <input type="radio" id="q8a" name="q8" value="reduced" />
           <label for="q8a">Reduced stress levels</label><br />
           <input type="radio" id="q8b" name="q8" value="extra" />
@@ -149,6 +158,19 @@
           <label for="q10c">To make the trail crowded</label>
         </fieldset>
 
+        <!-- New Question 11 -->
+        <fieldset>
+          <legend>
+            11. What is one risk for dogs when they venture off-trail?
+          </legend>
+          <input type="radio" id="q11a" name="q11" value="rattlesnakes" />
+          <label for="q11a">Encountering rattlesnakes</label><br />
+          <input type="radio" id="q11b" name="q11" value="water" />
+          <label for="q11b">Finding extra water sources</label><br />
+          <input type="radio" id="q11c" name="q11" value="wildlife" />
+          <label for="q11c">Meeting too many wild animals</label>
+        </fieldset>
+
         <button type="button" onclick="checkQuiz()">Submit</button>
         <p id="quiz-result"></p>
       </form>
@@ -158,36 +180,50 @@
       function checkQuiz() {
         const correctAnswers = {
           q1: "6ft",
-          q2: "protect",
+          q2: "safety",
           q3: "stress",
           q4: "biodegradable",
           q5: "diversity",
           q6: "policies",
-          q7: "reduce",
+          q7: "harm",
           q8: "extra",
           q9: "dog waste",
           q10: "safety",
+          q11: "rattlesnakes",
         };
 
         let score = 0;
         let totalQuestions = Object.keys(correctAnswers).length;
+        let missedQuestions = [];
 
+        // Check each question
         for (let question in correctAnswers) {
           const selected = document.querySelector(
             'input[name="' + question + '"]:checked'
           );
           if (selected && selected.value === correctAnswers[question]) {
             score++;
+          } else {
+            // Extract the numeric part (e.g., "q3" becomes "3")
+            missedQuestions.push(question.substring(1));
           }
         }
 
-        const result = document.getElementById("quiz-result");
-        result.textContent =
+        let resultText =
           "You got " +
           score +
           " out of " +
           totalQuestions +
           " questions correct.";
+        if (missedQuestions.length > 0) {
+          resultText +=
+            " You missed question" +
+            (missedQuestions.length > 1 ? "s" : "") +
+            ": " +
+            missedQuestions.join(", ") +
+            ".";
+        }
+        document.getElementById("quiz-result").textContent = resultText;
       }
     </script>
 
