@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz | Test Your Knowledge - SAMO Dogs</title>
+    <title>Quiz | SAMO Dogs</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
@@ -13,222 +13,319 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background: #f9f9f9;
+        color: #333;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .quiz-container {
+        max-width: 600px;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 100%;
+      }
+      .progress {
+        text-align: center;
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 0.5rem;
+      }
+      .progress-bar-container {
+        width: 100%;
+        height: 8px;
+        background: #eee;
+        border-radius: 4px;
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+      }
+      #progress-bar {
+        height: 100%;
+        background: #007bff;
+        width: 0%;
+        transition: width 0.4s ease;
+      }
+      fieldset {
+        display: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        animation: fadeIn 0.4s ease-in-out;
+      }
+      fieldset.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .question {
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+      input[type="radio"] {
+        display: none;
+      }
+      label {
+        display: block;
+        background: #f1f1f1;
+        margin-bottom: 0.75rem;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.3s, border 0.3s;
+        border: 2px solid transparent;
+      }
+      input[type="radio"]:checked + label {
+        background: #e7f1ff;
+        border-color: #007bff;
+      }
+      label:hover {
+        background: #f0f0f0;
+      }
+      button {
+        margin-top: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background: #0056b3;
+      }
+      #restart-button {
+        margin-top: 1rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        width: 100%;
+        display: none;
+      }
+      #restart-button:hover {
+        background: #1e7e34;
+      }
+      #quiz-result {
+        margin-top: 2rem;
+        font-size: 1.1rem;
+        text-align: center;
+      }
+      @media (max-width: 480px) {
+        .quiz-container {
+          padding: 1rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <nav aria-label="Breadcrumb"><a href="index.html">Home</a> &gt; Quiz</nav>
-
-    <section>
-      <h1><i class="fa-solid fa-question-circle"></i> Test Your Knowledge</h1>
+    <section class="quiz-container">
       <form id="quiz">
-        <!-- Question 1 -->
-        <fieldset>
-          <legend>1. What is the recommended leash length on trails?</legend>
-          <input type="radio" id="q1a" name="q1" value="3ft" />
-          <label for="q1a">3 feet</label><br />
-          <input type="radio" id="q1b" name="q1" value="6ft" />
-          <label for="q1b">6 feet</label><br />
-          <input type="radio" id="q1c" name="q1" value="12ft" />
-          <label for="q1c">12 feet</label>
-        </fieldset>
-
-        <!-- Question 2 -->
-        <fieldset>
-          <legend>
-            2. Why is it important to keep your dog on a leash while hiking?
-          </legend>
-          <input type="radio" id="q2a" name="q2" value="safety" />
-          <label for="q2a"
-            >To protect your dog, other hikers, and local wildlife</label
-          ><br />
-          <input type="radio" id="q2b" name="q2" value="roam" />
-          <label for="q2b">To let your dog roam freely</label><br />
-          <input type="radio" id="q2c" name="q2" value="ignore" />
-          <label for="q2c">Because dogs naturally ignore trail rules</label>
-        </fieldset>
-
-        <!-- Question 3 -->
-        <fieldset>
-          <legend>
-            3. What is one direct consequence of dogs being off-leash on trails?
-          </legend>
-          <input type="radio" id="q3a" name="q3" value="improved" />
-          <label for="q3a">Improved ecosystem</label><br />
-          <input type="radio" id="q3b" name="q3" value="stress" />
-          <label for="q3b">Wildlife stress</label><br />
-          <input type="radio" id="q3c" name="q3" value="benefit" />
-          <label for="q3c">Enhanced biodiversity</label>
-        </fieldset>
-
-        <!-- Question 4 -->
-        <fieldset>
-          <legend>
-            4. What is the best option to carry for proper disposal of your
-            dog's waste on trails?
-          </legend>
-          <input type="radio" id="q4a" name="q4" value="biodegradable" />
-          <label for="q4a">Biodegradable waste bags</label><br />
-          <input type="radio" id="q4b" name="q4" value="plastic" />
-          <label for="q4b">Regular plastic bags</label><br />
-          <input type="radio" id="q4c" name="q4" value="paper" />
-          <label for="q4c">Paper towels</label>
-        </fieldset>
-
-        <!-- Question 5 -->
-        <fieldset>
-          <legend>
-            5. Following responsible dog hiking practices can help preserve
-            natural habitats. What is one environmental benefit?
-          </legend>
-          <input type="radio" id="q5a" name="q5" value="diversity" />
-          <label for="q5a">Increased wildlife diversity</label><br />
-          <input type="radio" id="q5b" name="q5" value="noise" />
-          <label for="q5b">Higher noise levels</label><br />
-          <input type="radio" id="q5c" name="q5" value="crowded" />
-          <label for="q5c">More crowded trails</label>
-        </fieldset>
-
-        <!-- Question 6 -->
-        <fieldset>
-          <legend>
-            6. Before heading out on a hike with your dog, what is an important
-            detail to verify?
-          </legend>
-          <input type="radio" id="q6a" name="q6" value="policies" />
-          <label for="q6a">The pet policies of the park</label><br />
-          <input type="radio" id="q6b" name="q6" value="dog" />
-          <label for="q6b">That your dog enjoys hiking</label><br />
-          <input type="radio" id="q6c" name="q6" value="weather" />
-          <label for="q6c">The weather conditions</label>
-        </fieldset>
-
-        <!-- Question 7 -->
-        <fieldset>
-          <legend>
-            7. What is one direct risk of allowing dogs to chase wildlife?
-          </legend>
-          <input type="radio" id="q7a" name="q7" value="exercise" />
-          <label for="q7a">They help wildlife exercise</label><br />
-          <input type="radio" id="q7b" name="q7" value="harm" />
-          <label for="q7b">They can injure or cause stress to wildlife</label
-          ><br />
-          <input type="radio" id="q7c" name="q7" value="noharm" />
-          <label for="q7c">They cause no harm</label>
-        </fieldset>
-
-        <!-- Question 8 -->
-        <fieldset>
-          <legend>
-            8. What is one indirect effect of disturbed wildlife behavior due to
-            off-leash dogs?
-          </legend>
-          <input type="radio" id="q8a" name="q8" value="reduced" />
-          <label for="q8a">Reduced stress levels</label><br />
-          <input type="radio" id="q8b" name="q8" value="extra" />
-          <label for="q8b">Extra energy expenditure by wildlife</label><br />
-          <input type="radio" id="q8c" name="q8" value="improved" />
-          <label for="q8c">Improved habitat quality</label>
-        </fieldset>
-
-        <!-- Question 9 -->
-        <fieldset>
-          <legend>
-            9. Which factor contributes to water pollution on trails?
-          </legend>
-          <input type="radio" id="q9a" name="q9" value="dog waste" />
-          <label for="q9a">Dog waste</label><br />
-          <input type="radio" id="q9b" name="q9" value="sunlight" />
-          <label for="q9b">Excess sunlight</label><br />
-          <input type="radio" id="q9c" name="q9" value="birdchirps" />
-          <label for="q9c">Bird chirps</label>
-        </fieldset>
-
-        <!-- Question 10 -->
-        <fieldset>
-          <legend>
-            10. What is one key reason to follow trail regulations regarding
-            dogs?
-          </legend>
-          <input type="radio" id="q10a" name="q10" value="safety" />
-          <label for="q10a"
-            >To ensure safety and preserve natural habitats</label
-          ><br />
-          <input type="radio" id="q10b" name="q10" value="annoy" />
-          <label for="q10b">To annoy fellow hikers</label><br />
-          <input type="radio" id="q10c" name="q10" value="crowded" />
-          <label for="q10c">To make the trail crowded</label>
-        </fieldset>
-
-        <!-- New Question 11 -->
-        <fieldset>
-          <legend>
-            11. What is one risk for dogs when they venture off-trail?
-          </legend>
-          <input type="radio" id="q11a" name="q11" value="rattlesnakes" />
-          <label for="q11a">Encountering rattlesnakes</label><br />
-          <input type="radio" id="q11b" name="q11" value="water" />
-          <label for="q11b">Finding extra water sources</label><br />
-          <input type="radio" id="q11c" name="q11" value="wildlife" />
-          <label for="q11c">Meeting too many wild animals</label>
-        </fieldset>
-
-        <button type="button" onclick="checkQuiz()">Submit</button>
-        <p id="quiz-result"></p>
+        <div class="progress" id="progress"></div>
+        <div class="progress-bar-container">
+          <div id="progress-bar"></div>
+        </div>
+        <div id="question-container"></div>
+        <button type="button" id="next-button">Next</button>
       </form>
+      <p id="quiz-result"></p>
+      <button id="restart-button">Restart Quiz</button>
     </section>
 
     <script>
-      function checkQuiz() {
-        const correctAnswers = {
-          q1: "6ft",
-          q2: "safety",
-          q3: "stress",
-          q4: "biodegradable",
-          q5: "diversity",
-          q6: "policies",
-          q7: "harm",
-          q8: "extra",
-          q9: "dog waste",
-          q10: "safety",
-          q11: "rattlesnakes",
-        };
+      const quizData = [
+        {
+          q: "What is the recommended leash length on trails?",
+          a: ["3 feet", "6 feet", "12 feet"],
+          correct: "6 feet",
+        },
+        {
+          q: "Why is it important to keep your dog on a leash while hiking?",
+          a: [
+            "To protect your dog, other hikers, and local wildlife",
+            "To let your dog roam freely",
+            "Because dogs naturally ignore trail rules",
+          ],
+          correct: "To protect your dog, other hikers, and local wildlife",
+        },
+        {
+          q: "What is one direct consequence of dogs being off-leash on trails?",
+          a: ["Improved ecosystem", "Wildlife stress", "Enhanced biodiversity"],
+          correct: "Wildlife stress",
+        },
+        {
+          q: "What is the best option to carry for proper disposal of your dog's waste on trails?",
+          a: [
+            "Biodegradable waste bags",
+            "Regular plastic bags",
+            "Paper towels",
+          ],
+          correct: "Biodegradable waste bags",
+        },
+        {
+          q: "Following responsible dog hiking practices can help preserve natural habitats. What is one environmental benefit?",
+          a: [
+            "Increased wildlife diversity",
+            "Higher noise levels",
+            "More crowded trails",
+          ],
+          correct: "Increased wildlife diversity",
+        },
+        {
+          q: "Before heading out on a hike with your dog, what is an important detail to verify?",
+          a: [
+            "The pet policies of the park",
+            "That your dog enjoys hiking",
+            "The weather conditions",
+          ],
+          correct: "The pet policies of the park",
+        },
+        {
+          q: "What is one direct risk of allowing dogs to chase wildlife?",
+          a: [
+            "They help wildlife exercise",
+            "They can injure or cause stress to wildlife",
+            "They cause no harm",
+          ],
+          correct: "They can injure or cause stress to wildlife",
+        },
+        {
+          q: "What is one indirect effect of disturbed wildlife behavior due to off-leash dogs?",
+          a: [
+            "Reduced stress levels",
+            "Extra energy expenditure by wildlife",
+            "Improved habitat quality",
+          ],
+          correct: "Extra energy expenditure by wildlife",
+        },
+        {
+          q: "Which factor contributes to water pollution on trails?",
+          a: ["Dog waste", "Excess sunlight", "Bird chirps"],
+          correct: "Dog waste",
+        },
+        {
+          q: "What is one key reason to follow trail regulations regarding dogs?",
+          a: [
+            "To ensure safety and preserve natural habitats",
+            "To annoy fellow hikers",
+            "To make the trail crowded",
+          ],
+          correct: "To ensure safety and preserve natural habitats",
+        },
+        {
+          q: "What is one risk for dogs when they venture off-trail?",
+          a: [
+            "Encountering rattlesnakes",
+            "Finding extra water sources",
+            "Meeting too many wild animals",
+          ],
+          correct: "Encountering rattlesnakes",
+        },
+      ];
 
-        let score = 0;
-        let totalQuestions = Object.keys(correctAnswers).length;
-        let missedQuestions = [];
+      let currentQuestion = 0;
+      let score = 0;
 
-        // Check each question
-        for (let question in correctAnswers) {
-          const selected = document.querySelector(
-            'input[name="' + question + '"]:checked'
-          );
-          if (selected && selected.value === correctAnswers[question]) {
-            score++;
-          } else {
-            // Extract the numeric part (e.g., "q3" becomes "3")
-            missedQuestions.push(question.substring(1));
-          }
-        }
+      const questionContainer = document.getElementById("question-container");
+      const nextButton = document.getElementById("next-button");
+      const restartButton = document.getElementById("restart-button");
+      const progress = document.getElementById("progress");
+      const progressBar = document.getElementById("progress-bar");
+      const result = document.getElementById("quiz-result");
 
-        let resultText =
-          "You got " +
-          score +
-          " out of " +
-          totalQuestions +
-          " questions correct.";
-        if (missedQuestions.length > 0) {
-          resultText +=
-            " You missed question" +
-            (missedQuestions.length > 1 ? "s" : "") +
-            ": " +
-            missedQuestions.join(", ") +
-            ".";
-        }
-        document.getElementById("quiz-result").textContent = resultText;
+      function showQuestion(index) {
+        const data = quizData[index];
+        questionContainer.innerHTML = `
+        <fieldset class="active" role="radiogroup" aria-labelledby="q${index}">
+          <legend class="question" id="q${index}">${index + 1}. ${
+          data.q
+        }</legend>
+          ${data.a
+            .map(
+              (choice, i) => `
+            <div>
+              <input type="radio" id="q${index}-a${i}" name="question" value="${choice}" />
+              <label for="q${index}-a${i}">${choice}</label>
+            </div>`
+            )
+            .join("")}
+        </fieldset>
+      `;
+        progress.textContent = `Question ${index + 1} of ${quizData.length}`;
+        progressBar.style.width = `${((index + 1) / quizData.length) * 100}%`;
+        nextButton.textContent =
+          index === quizData.length - 1 ? "Submit" : "Next";
       }
-    </script>
 
-    <footer>
-      <p>&copy; 2025 samodogs.org | Santa Monica Mountains</p>
-    </footer>
+      nextButton.addEventListener("click", () => {
+        const selected = document.querySelector(
+          "input[name='question']:checked"
+        );
+        if (!selected) {
+          alert("Please select an answer.");
+          return;
+        }
+        if (selected.value === quizData[currentQuestion].correct) {
+          score++;
+        }
+        currentQuestion++;
+        if (currentQuestion < quizData.length) {
+          showQuestion(currentQuestion);
+        } else {
+          questionContainer.innerHTML = "";
+          nextButton.style.display = "none";
+          progress.style.display = "none";
+          progressBar.style.display = "none";
+          restartButton.style.display = "block";
+
+          const pct = (score / quizData.length) * 100;
+          let message = "";
+          if (pct === 100) message = "Perfect! You're a dog trail pro! 🐶🏞️";
+          else if (pct >= 80)
+            message = "Great job! You really know your stuff. 🐾";
+          else if (pct >= 50)
+            message =
+              "Nice effort. A little more trail time and you'll be a pro!";
+          else
+            message =
+              "Looks like it's time for some trail etiquette training! 🐕📚";
+
+          result.innerHTML = `<strong>You scored ${score} out of ${quizData.length}</strong><br>${message}`;
+        }
+      });
+
+      restartButton.addEventListener("click", () => {
+        currentQuestion = 0;
+        score = 0;
+        nextButton.style.display = "block";
+        progress.style.display = "block";
+        progressBar.style.display = "block";
+        progressBar.style.width = "0%";
+        result.textContent = "";
+        restartButton.style.display = "none";
+        showQuestion(currentQuestion);
+      });
+
+      showQuestion(currentQuestion);
+    </script>
   </body>
 </html>
