@@ -31,6 +31,27 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         width: 100%;
       }
+      #start-screen {
+        text-align: center;
+        max-width: 600px;
+        background: #fff;
+        padding: 2rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+      #start-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+      }
+      #start-button:hover {
+        background: #0056b3;
+      }
       .progress {
         text-align: center;
         font-size: 0.9rem;
@@ -138,6 +159,23 @@
   </head>
   <body>
     <nav aria-label="Breadcrumb"><a href="index.html">Home</a> &gt; Quiz</nav>
+
+    <!-- Welcome Screen -->
+    <div id="start-screen">
+      <h2>🐕 Welcome to the SAMO Dogs Trail Etiquette Quiz</h2>
+      <p>
+        Test your knowledge of best practices for hiking with dogs in the
+        beautiful Santa Monica Mountains. Let’s keep our trails safe and wild!
+      </p>
+      <img
+        src="images/welcome.png"
+        alt="Hiker and dog in Santa Monica Mountains"
+        style="max-width: 100%; border-radius: 1rem; margin: 1rem 0"
+      />
+      <button id="start-button">Start Quiz</button>
+    </div>
+
+    <!-- Quiz -->
     <section class="quiz-container">
       <form id="quiz">
         <div class="progress" id="progress"></div>
@@ -157,6 +195,7 @@
           q: "What is the recommended leash length on trails?",
           a: ["3 feet", "6 feet", "12 feet"],
           correct: "6 feet",
+          img: "images/leash-length.png",
         },
         {
           q: "Why is it important to keep your dog on a leash while hiking?",
@@ -166,11 +205,13 @@
             "Because dogs naturally ignore trail rules",
           ],
           correct: "To protect your dog, other hikers, and local wildlife",
+          img: "images/why-leash.png",
         },
         {
           q: "What is one direct consequence of dogs being off-leash on trails?",
           a: ["Improved ecosystem", "Wildlife stress", "Enhanced biodiversity"],
           correct: "Wildlife stress",
+          img: "images/wildlife-stress.png",
         },
         {
           q: "What is the best option to carry for proper disposal of your dog's waste on trails?",
@@ -180,6 +221,7 @@
             "Paper towels",
           ],
           correct: "Biodegradable waste bags",
+          img: "images/dog-waste.png",
         },
         {
           q: "Following responsible dog hiking practices can help preserve natural habitats. What is one environmental benefit?",
@@ -189,6 +231,7 @@
             "More crowded trails",
           ],
           correct: "Increased wildlife diversity",
+          img: "images/habitat-benefit.png",
         },
         {
           q: "Before heading out on a hike with your dog, what is an important detail to verify?",
@@ -198,6 +241,7 @@
             "The weather conditions",
           ],
           correct: "The pet policies of the park",
+          img: "images/pet-policy.png",
         },
         {
           q: "What is one direct risk of allowing dogs to chase wildlife?",
@@ -207,6 +251,7 @@
             "They cause no harm",
           ],
           correct: "They can injure or cause stress to wildlife",
+          img: "images/chasing-wildlife.png",
         },
         {
           q: "What is one indirect effect of disturbed wildlife behavior due to off-leash dogs?",
@@ -216,11 +261,13 @@
             "Improved habitat quality",
           ],
           correct: "Extra energy expenditure by wildlife",
+          img: "images/indirect-stress.png",
         },
         {
           q: "Which factor contributes to water pollution on trails?",
           a: ["Dog waste", "Excess sunlight", "Bird chirps"],
           correct: "Dog waste",
+          img: "images/pollution.png",
         },
         {
           q: "What is one key reason to follow trail regulations regarding dogs?",
@@ -230,6 +277,7 @@
             "To make the trail crowded",
           ],
           correct: "To ensure safety and preserve natural habitats",
+          img: "images/follow-rules.png",
         },
         {
           q: "What is one risk for dogs when they venture off-trail?",
@@ -239,12 +287,14 @@
             "Meeting too many wild animals",
           ],
           correct: "Encountering rattlesnakes",
+          img: "images/rattlesnake.png",
         },
       ];
 
       let currentQuestion = 0;
       let score = 0;
 
+      const quiz = document.getElementById("quiz");
       const questionContainer = document.getElementById("question-container");
       const nextButton = document.getElementById("next-button");
       const restartButton = document.getElementById("restart-button");
@@ -252,10 +302,28 @@
       const progressBar = document.getElementById("progress-bar");
       const result = document.getElementById("quiz-result");
 
+      quiz.style.display = "none"; // Hide quiz initially
+      progress.style.display = "none";
+      document.querySelector(".progress-bar-container").style.display = "none";
+
+      document.getElementById("start-button").addEventListener("click", () => {
+        document.getElementById("start-screen").style.display = "none";
+        quiz.style.display = "block";
+        progress.style.display = "block";
+        document.querySelector(".progress-bar-container").style.display =
+          "block";
+        showQuestion(currentQuestion);
+      });
+
       function showQuestion(index) {
         const data = quizData[index];
         questionContainer.innerHTML = `
         <fieldset class="active" role="radiogroup" aria-labelledby="q${index}">
+          ${
+            data.img
+              ? `<img src="${data.img}" alt="" style="max-width: 100%; border-radius: 0.5rem; margin-bottom: 1rem;">`
+              : ""
+          }
           <legend class="question" id="q${index}">${index + 1}. ${
           data.q
         }</legend>
@@ -324,8 +392,6 @@
         restartButton.style.display = "none";
         showQuestion(currentQuestion);
       });
-
-      showQuestion(currentQuestion);
     </script>
   </body>
 </html>
