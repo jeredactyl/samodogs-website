@@ -3,395 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Test your knowledge on dog hiking etiquette with our interactive SAMO Dogs quiz."
+    />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <title>Quiz | SAMO Dogs</title>
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <style>
-      body {
-        font-family: "Roboto", sans-serif;
-        background: #f9f9f9;
-        color: #333;
-        padding: 2rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .quiz-container {
-        max-width: 600px;
-        background: #fff;
-        padding: 2rem;
-        border-radius: 1rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        width: 100%;
-      }
-      #start-screen {
-        text-align: center;
-        max-width: 600px;
-        background: #fff;
-        padding: 2rem;
-        border-radius: 1rem;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-bottom: 2rem;
-      }
-      #start-button {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        background: #007bff;
-        color: white;
-        border: none;
-        border-radius: 0.5rem;
-        cursor: pointer;
-      }
-      #start-button:hover {
-        background: #0056b3;
-      }
-      .progress {
-        text-align: center;
-        font-size: 0.9rem;
-        color: #666;
-        margin-bottom: 0.5rem;
-      }
-      .progress-bar-container {
-        width: 100%;
-        height: 8px;
-        background: #eee;
-        border-radius: 4px;
-        margin-bottom: 1.5rem;
-        overflow: hidden;
-      }
-      #progress-bar {
-        height: 100%;
-        background: #007bff;
-        width: 0%;
-        transition: width 0.4s ease;
-      }
-      fieldset {
-        display: none;
-        border: none;
-        padding: 0;
-        margin: 0;
-        animation: fadeIn 0.4s ease-in-out;
-      }
-      fieldset.active {
-        display: block;
-      }
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .question {
-        margin-bottom: 1rem;
-        font-weight: 700;
-      }
-      input[type="radio"] {
-        display: none;
-      }
-      label {
-        display: block;
-        background: #f1f1f1;
-        margin-bottom: 0.75rem;
-        padding: 1rem;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: background 0.3s, border 0.3s;
-        border: 2px solid transparent;
-      }
-      input[type="radio"]:checked + label {
-        background: #e7f1ff;
-        border-color: #007bff;
-      }
-      label:hover {
-        background: #f0f0f0;
-      }
-      button {
-        margin-top: 1.5rem;
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        background: #007bff;
-        color: white;
-        border: none;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        width: 100%;
-      }
-      button:hover {
-        background: #0056b3;
-      }
-      #restart-button {
-        margin-top: 1rem;
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        background: #28a745;
-        color: white;
-        border: none;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        width: 100%;
-        display: none;
-      }
-      #restart-button:hover {
-        background: #1e7e34;
-      }
-      #quiz-result {
-        margin-top: 2rem;
-        font-size: 1.1rem;
-        text-align: center;
-      }
-      @media (max-width: 480px) {
-        .quiz-container {
-          padding: 1rem;
-        }
-      }
-    </style>
   </head>
   <body>
-    <nav aria-label="Breadcrumb"><a href="index.html">Home</a> &gt; Quiz</nav>
+    <header class="quiz-header">
+      <h1>Quiz | SAMO Dogs</h1>
+    </header>
 
-    <!-- Welcome Screen -->
-    <div id="start-screen">
-      <h2>🐕 Welcome to the SAMO Dogs Trail Etiquette Quiz</h2>
-      <p>
-        Test your knowledge of best practices for hiking with dogs in the
-        beautiful Santa Monica Mountains. Let’s keep our trails safe and wild!
-      </p>
-      <img
-        src="images/welcome.png"
-        alt="Hiker and dog in Santa Monica Mountains"
-        style="max-width: 100%; border-radius: 1rem; margin: 1rem 0"
-      />
-      <button id="start-button">Start Quiz</button>
-    </div>
+    <main>
+      <section id="start-screen">
+        <p>
+          Welcome to the SAMO Dogs Quiz! Test your knowledge about responsible
+          dog hiking practices.
+        </p>
+        <button id="start-button">Start Quiz</button>
+      </section>
 
-    <!-- Quiz -->
-    <section class="quiz-container">
-      <form id="quiz">
-        <div class="progress" id="progress"></div>
-        <div class="progress-bar-container">
-          <div id="progress-bar"></div>
+      <section id="quiz-section" style="display: none">
+        <div id="quiz">
+          <div id="question-container"></div>
+          <button id="next-button">Next</button>
+          <button id="restart-button" style="display: none">Restart</button>
+          <div id="progress">
+            <div class="progress-bar-container">
+              <div id="progress-bar"></div>
+            </div>
+          </div>
+          <div id="quiz-result"></div>
         </div>
-        <div id="question-container"></div>
-        <button type="button" id="next-button">Next</button>
-      </form>
-      <p id="quiz-result"></p>
-      <button id="restart-button">Restart Quiz</button>
-    </section>
+      </section>
+    </main>
 
-    <script>
-      const quizData = [
-        {
-          q: "What is the recommended leash length on trails?",
-          a: ["3 feet", "6 feet", "12 feet"],
-          correct: "6 feet",
-          img: "images/leash-length.png",
-        },
-        {
-          q: "Why is it important to keep your dog on a leash while hiking?",
-          a: [
-            "To protect your dog, other hikers, and local wildlife",
-            "To let your dog roam freely",
-            "Because dogs naturally ignore trail rules",
-          ],
-          correct: "To protect your dog, other hikers, and local wildlife",
-          img: "images/why-leash.png",
-        },
-        {
-          q: "What is one direct consequence of dogs being off-leash on trails?",
-          a: ["Improved ecosystem", "Wildlife stress", "Enhanced biodiversity"],
-          correct: "Wildlife stress",
-          img: "images/wildlife-stress.png",
-        },
-        {
-          q: "What is the best option to carry for proper disposal of your dog's waste on trails?",
-          a: [
-            "Biodegradable waste bags",
-            "Regular plastic bags",
-            "Paper towels",
-          ],
-          correct: "Biodegradable waste bags",
-          img: "images/dog-waste.png",
-        },
-        {
-          q: "Following responsible dog hiking practices can help preserve natural habitats. What is one environmental benefit?",
-          a: [
-            "Increased wildlife diversity",
-            "Higher noise levels",
-            "More crowded trails",
-          ],
-          correct: "Increased wildlife diversity",
-          img: "images/habitat-benefit.png",
-        },
-        {
-          q: "Before heading out on a hike with your dog, what is an important detail to verify?",
-          a: [
-            "The pet policies of the park",
-            "That your dog enjoys hiking",
-            "The weather conditions",
-          ],
-          correct: "The pet policies of the park",
-          img: "images/pet-policy.png",
-        },
-        {
-          q: "What is one direct risk of allowing dogs to chase wildlife?",
-          a: [
-            "They help wildlife exercise",
-            "They can injure or cause stress to wildlife",
-            "They cause no harm",
-          ],
-          correct: "They can injure or cause stress to wildlife",
-          img: "images/chasing-wildlife.png",
-        },
-        {
-          q: "What is one indirect effect of disturbed wildlife behavior due to off-leash dogs?",
-          a: [
-            "Reduced stress levels",
-            "Extra energy expenditure by wildlife",
-            "Improved habitat quality",
-          ],
-          correct: "Extra energy expenditure by wildlife",
-          img: "images/indirect-stress.png",
-        },
-        {
-          q: "Which factor contributes to water pollution on trails?",
-          a: ["Dog waste", "Excess sunlight", "Bird chirps"],
-          correct: "Dog waste",
-          img: "images/pollution.png",
-        },
-        {
-          q: "What is one key reason to follow trail regulations regarding dogs?",
-          a: [
-            "To ensure safety and preserve natural habitats",
-            "To annoy fellow hikers",
-            "To make the trail crowded",
-          ],
-          correct: "To ensure safety and preserve natural habitats",
-          img: "images/follow-rules.png",
-        },
-        {
-          q: "What is one risk for dogs when they venture off-trail?",
-          a: [
-            "Encountering rattlesnakes",
-            "Finding extra water sources",
-            "Meeting too many wild animals",
-          ],
-          correct: "Encountering rattlesnakes",
-          img: "images/rattlesnake.png",
-        },
-      ];
+    <footer>
+      <p>&copy; 2025 SAMO Dogs. All rights reserved.</p>
+    </footer>
 
-      let currentQuestion = 0;
-      let score = 0;
-
-      const quiz = document.getElementById("quiz");
-      const questionContainer = document.getElementById("question-container");
-      const nextButton = document.getElementById("next-button");
-      const restartButton = document.getElementById("restart-button");
-      const progress = document.getElementById("progress");
-      const progressBar = document.getElementById("progress-bar");
-      const result = document.getElementById("quiz-result");
-
-      quiz.style.display = "none"; // Hide quiz initially
-      progress.style.display = "none";
-      document.querySelector(".progress-bar-container").style.display = "none";
-
-      document.getElementById("start-button").addEventListener("click", () => {
-        document.getElementById("start-screen").style.display = "none";
-        quiz.style.display = "block";
-        progress.style.display = "block";
-        document.querySelector(".progress-bar-container").style.display =
-          "block";
-        showQuestion(currentQuestion);
-      });
-
-      function showQuestion(index) {
-        const data = quizData[index];
-        questionContainer.innerHTML = `
-        <fieldset class="active" role="radiogroup" aria-labelledby="q${index}">
-          ${
-            data.img
-              ? `<img src="${data.img}" alt="" style="max-width: 100%; border-radius: 0.5rem; margin-bottom: 1rem;">`
-              : ""
-          }
-          <legend class="question" id="q${index}">${index + 1}. ${
-          data.q
-        }</legend>
-          ${data.a
-            .map(
-              (choice, i) => `
-            <div>
-              <input type="radio" id="q${index}-a${i}" name="question" value="${choice}" />
-              <label for="q${index}-a${i}">${choice}</label>
-            </div>`
-            )
-            .join("")}
-        </fieldset>
-      `;
-        progress.textContent = `Question ${index + 1} of ${quizData.length}`;
-        progressBar.style.width = `${((index + 1) / quizData.length) * 100}%`;
-        nextButton.textContent =
-          index === quizData.length - 1 ? "Submit" : "Next";
-      }
-
-      nextButton.addEventListener("click", () => {
-        const selected = document.querySelector(
-          "input[name='question']:checked"
-        );
-        if (!selected) {
-          alert("Please select an answer.");
-          return;
-        }
-        if (selected.value === quizData[currentQuestion].correct) {
-          score++;
-        }
-        currentQuestion++;
-        if (currentQuestion < quizData.length) {
-          showQuestion(currentQuestion);
-        } else {
-          questionContainer.innerHTML = "";
-          nextButton.style.display = "none";
-          progress.style.display = "none";
-          progressBar.style.display = "none";
-          restartButton.style.display = "block";
-
-          const pct = (score / quizData.length) * 100;
-          let message = "";
-          if (pct === 100) message = "Perfect! You're a dog trail pro! 🐶🏞️";
-          else if (pct >= 80)
-            message = "Great job! You really know your stuff. 🐾";
-          else if (pct >= 50)
-            message =
-              "Nice effort. A little more trail time and you'll be a pro!";
-          else
-            message =
-              "Looks like it's time for some trail etiquette training! 🐕📚";
-
-          result.innerHTML = `<strong>You scored ${score} out of ${quizData.length}</strong><br>${message}`;
-        }
-      });
-
-      restartButton.addEventListener("click", () => {
-        currentQuestion = 0;
-        score = 0;
-        nextButton.style.display = "block";
-        progress.style.display = "block";
-        progressBar.style.display = "block";
-        progressBar.style.width = "0%";
-        result.textContent = "";
-        restartButton.style.display = "none";
-        showQuestion(currentQuestion);
-      });
-    </script>
+    <!-- External JavaScript file for quiz functionality -->
+    <script src="quiz.js"></script>
   </body>
 </html>

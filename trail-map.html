@@ -3,16 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore interactive, dog-friendly trails in the Santa Monica Mountains with our map."
+    />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <title>Interactive Trail Map | SAMO Dogs</title>
     <link rel="stylesheet" href="style.css" />
     <link
-      rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
     />
   </head>
   <body>
     <nav aria-label="Breadcrumb">
-      <a href="index.html">Home</a> &gt; Interactive Trail Map
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li>Interactive Trail Map</li>
+      </ul>
     </nav>
 
     <section>
@@ -22,7 +30,7 @@
         interactive map.
       </p>
 
-      <!-- Embedded Google Map. Replace "YOUR_MAP_ID" with the actual map ID -->
+      <!-- Embedded Map with a title for accessibility -->
       <iframe
         src="https://caltopo.com/m/0008CFJ"
         width="100%"
@@ -30,11 +38,12 @@
         style="border: 0"
         allowfullscreen=""
         loading="lazy"
+        title="Interactive Trail Map"
       ></iframe>
     </section>
 
     <footer>
-      <p>&copy; 2025 samodogs.org | Santa Monica Mountains</p>
+      <p>&copy; 2025 SAMO Dogs. All rights reserved.</p>
     </footer>
   </body>
 </html>
