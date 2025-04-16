@@ -3,22 +3,19 @@
 /* Base Styles */
 body {
   font-family: "Roboto", sans-serif;
-  background-color: #fff;
-  color: black;
-  margin: 0 auto;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
   padding: 0;
   max-width: 1200px; /* Expanded max width for a modern feel */
-  line-height: 1.6;
 }
 
 /* Hero Section */
 header.hero {
   position: relative;
-  background-image: url("images/hero-trail.jpg"); /* Replace with a vibrant, scenic photo */
-  background-size: cover;
-  background-position: center;
-  color: #fff;
-  padding: 100px 20px;
+  background: linear-gradient(to bottom, #6ab7ff, #e3f2fd);
+  color: white;
+  padding: 3rem 1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -37,49 +34,95 @@ header.hero::after {
   z-index: 1;
 }
 
-header.hero h1,
+header.hero h1 {
+  position: relative;
+  z-index: 2;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
 header.hero p {
   position: relative;
   z-index: 2;
+  font-size: 1.2rem;
 }
 
 /* Navigation */
 nav {
+  background-color: #f8f9fa;
+  padding: 1rem;
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: #2a2a2a; /* Dark background for contrast */
-  padding: 10px 20px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
-  gap: 15px;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
 }
 
-nav ul li a {
-  color: #fff;
+nav a {
   text-decoration: none;
+  color: #007bff;
   font-weight: bold;
+  transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
-  text-decoration: underline;
+nav a:hover,
+nav a:focus {
+  color: #0056b3;
 }
 
 /* Sections */
 section {
-  padding: 40px 20px;
+  padding: 2rem 1rem;
+  margin: 2rem 0;
+}
+
+section:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+section h1 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+section h2 {
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 1rem 0;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0.5rem 0;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 20px;
-  background: #f1f1f1;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+footer p {
+  margin: 0;
 }
 
 /* Responsive Image */
@@ -92,9 +135,9 @@ footer {
 
 /* Quiz Page Specific Styles */
 .quiz-header {
-  background-color: #2a2a2a;
-  color: #fff;
-  padding: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -102,9 +145,9 @@ footer {
 #quiz-section {
   max-width: 600px;
   margin: 2rem auto;
-  background: #fff;
+  background: #f9f9f9;
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -137,3 +180,105 @@ footer {
   border-radius: 10px;
   transition: width 0.3s ease;
 }
+
+/* Call to Action Button */
+.cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  background-color: #0056b3;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header.hero h1 {
+    font-size: 2rem;
+  }
+
+  header.hero p {
+    font-size: 1rem;
+  }
+
+  section {
+    padding: 1.5rem 1rem;
+  }
+
+  iframe {
+    height: 300px;
+  }
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 10px;
+  background: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  z-index: 1000;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+iframe {
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+<meta property="og:title" content="Interactive Trail Map | SAMO Dogs" />
+<meta property="og:description" content="Explore dog-friendly trails in the Santa Monica Mountains with our interactive map." />
+<meta property="og:image" content="images/trail-map-thumbnail.jpg" />
+<meta property="og:url" content="https://samodogs.org/trail-map.html" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<p>
+  Use the map below to explore trails. Click on a trail to view details, or use
+  the search bar to find specific locations.
+</p>
+
+<iframe
+  src="https://caltopo.com/m/0008CFJ"
+  width="100%"
+  height="480"
+  style="border: 0"
+  allowfullscreen=""
+  loading="lazy"
+  title="Interactive Trail Map"
+>
+  Your browser does not support iframes. Please visit the map directly at
+  <a href="https://caltopo.com/m/0008CFJ">CalTopo</a>.
+</iframe>
+
+<a href="index.html" class="cta-button">Back to Home</a>

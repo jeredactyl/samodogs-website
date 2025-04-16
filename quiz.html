@@ -14,7 +14,6 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -24,30 +23,63 @@
     />
   </head>
   <body>
-    <header class="quiz-header">
-      <h1>Quiz | SAMO Dogs</h1>
+    <noscript>
+      <p style="color: red; text-align: center">
+        This quiz requires JavaScript to function. Please enable JavaScript in
+        your browser.
+      </p>
+    </noscript>
+    <header class="hero">
+      <h1>🐾 SAMO Dogs Quiz</h1>
+      <p>Test Your Knowledge About Responsible Dog Hiking Practices</p>
     </header>
-
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="index.html#intro">Home</a></li>
+        <li><a href="index.html#trails">Dog-Friendly Trails</a></li>
+        <li><a href="index.html#impact">How Dogs Impact Wildlife</a></li>
+        <li><a href="index.html#tips">Hiking Tips</a></li>
+        <li><a href="trail-map.html">Interactive Trail Map</a></li>
+        <li><a href="quiz.html" aria-current="page">Test Your Knowledge</a></li>
+      </ul>
+    </nav>
     <main>
       <section id="start-screen">
         <p>
           Welcome to the SAMO Dogs Quiz! Test your knowledge about responsible
           dog hiking practices.
         </p>
-        <button id="start-button">Start Quiz</button>
+        <button id="start-button" aria-label="Start the quiz">
+          Start Quiz
+        </button>
       </section>
 
       <section id="quiz-section" style="display: none">
         <div id="quiz">
           <div id="question-container"></div>
-          <button id="next-button">Next</button>
-          <button id="restart-button" style="display: none">Restart</button>
-          <div id="progress">
+          <button id="next-button" aria-label="Go to the next question">
+            Next
+          </button>
+          <button
+            id="restart-button"
+            style="display: none"
+            aria-label="Restart the quiz"
+          >
+            Restart
+          </button>
+          <div
+            id="progress"
+            role="progressbar"
+            aria-valuenow="0"
+            aria-valuemin="0"
+            aria-valuemax="100"
+          >
             <div class="progress-bar-container">
               <div id="progress-bar"></div>
             </div>
           </div>
           <div id="quiz-result"></div>
+          <a href="index.html" class="cta-button">Back to Home</a>
         </div>
       </section>
     </main>
