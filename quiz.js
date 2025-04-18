@@ -121,16 +121,29 @@ function showQuestion(index) {
             : ""
         }
         <legend class="question" id="q${index}">${index + 1}. ${data.q}</legend>
+      
+      
         ${data.a
           .map(
             (choice, i) => `
-          <div>
-            <input type="radio" id="q${index}-a${i}" name="question" value="${choice}" />
-            <label for="q${index}-a${i}">${choice}</label>
-          </div>
+          <label class="quiz-option" for="q${index}-a${i}">
+            <input
+              type="radio"
+              id="q${index}-a${i}"
+              name="question"
+              value="${choice}"
+            />
+            <span>${choice}</span>
+          </label>
         `
           )
           .join("")}
+        
+
+
+
+
+
       </fieldset>
     `;
   progress.textContent = `Question ${index + 1} of ${quizData.length}`;
@@ -173,6 +186,9 @@ nextButton.addEventListener("click", () => {
       message = "Looks like it's time for some trail etiquette training! 🐕📚";
 
     result.innerHTML = `<strong>You scored ${score} out of ${quizData.length}</strong><br>${message}`;
+    if (score === quizData.length) {
+      showConfetti();
+    }
   }
 });
 
@@ -187,3 +203,20 @@ restartButton.addEventListener("click", () => {
   restartButton.style.display = "none";
   showQuestion(currentQuestion);
 });
+
+// Function to show confetti
+function showConfetti() {
+  console.log("Confetti triggered!"); // Debugging line
+  const confettiCanvas = document.createElement("canvas");
+  confettiCanvas.id = "confetti-canvas";
+  document.body.appendChild(confettiCanvas);
+
+  const confetti = new ConfettiGenerator({ target: "confetti-canvas" });
+  confetti.render();
+
+  // Stop confetti after 5 seconds
+  setTimeout(() => {
+    confetti.clear();
+    document.body.removeChild(confettiCanvas);
+  }, 5000);
+}

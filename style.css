@@ -112,19 +112,101 @@ h2 {
 /*── Buttons & CTAs ──────────────────────────────────────────────────────────*/
 .cta-button {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--color-primary);
-  color: #f9f9f9;
-  text-decoration: none;
-  border-radius: 5px;
+  padding: 15px 30px;
+  font-size: 1.5rem; /* Larger text */
   font-weight: bold;
+  color: #fff;
+  background-color: #4caf50; /* Vibrant green */
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.cta-button:hover,
-.cta-button:focus {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+
+.cta-button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+  transform: scale(1.05); /* Subtle zoom effect */
+}
+
+.cta-button:active {
+  transform: scale(0.95); /* Slightly smaller on click */
+}
+
+/* Make the Next button more prominent */
+#next-button {
+  display: inline-block;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff; /* Vibrant blue */
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px; /* Add spacing between the button and the question border */
+}
+
+#next-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Subtle zoom effect */
+}
+
+#next-button:active {
+  transform: scale(0.95); /* Slightly smaller on click */
+}
+
+/* Reduce image size for quiz questions */
+#quiz img {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px; /* Ensure images fit within the screen */
+  margin-bottom: 10px;
+  border-radius: 8px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow */
+}
+
+/* Style for quiz results */
+#quiz-result {
+  text-align: center;
+  color: #4caf50; /* Green for success */
+}
+
+/* Confetti canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Center the quiz box horizontally */
+#quiz-section {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: flex-start; /* Aligns content to the top */
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+  padding: 20px;
+  box-sizing: border-box; /* Ensures padding doesn't affect centering */
+}
+
+#quiz {
+  width: 100%;
+  max-width: 800px; /* Limit the width for better readability */
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-bg-alt);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  text-align: center;
+  margin: 0 auto; /* Ensures horizontal centering */
 }
 
 /*── Footer ──────────────────────────────────────────────────────────────────*/
@@ -148,4 +230,78 @@ footer p {
   .hero-content h1 {
     font-size: 2rem;
   }
+}
+
+/* remove default fieldset borders/spacing */
+#quiz-section fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  gap: 1rem; /* Add spacing between elements */
+}
+
+/* stack each option in its own row & centre the radio */
+.quiz-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  width: 100%; /* Ensure options take full width */
+}
+
+/* space the bullet from the text */
+.quiz-option input[type="radio"] {
+  margin-right: 0.5rem;
+  /* match your palette */
+  accent-color: var(--color-primary);
+  margin-right: 10px; /* Add spacing between the radio button and text */
+}
+
+/* optional: tighten up the text */
+.quiz-option span {
+  line-height: 1.4;
+}
+
+/* put this in your style.css */
+#quiz-section fieldset.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center everything horizontally under each other */
+  gap: 1rem; /* space out legend ↔ image ↔ options */
+}
+
+/* make sure your legend is centered, too */
+#quiz-section fieldset.active legend {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+/* Center the legend (question text) */
+#quiz-section fieldset legend {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Style the Submit button */
+#quiz-section button {
+  margin-top: 1rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#quiz-section button:hover {
+  background-color: var(--color-primary-dark);
 }

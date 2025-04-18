@@ -23,16 +23,7 @@
     />
   </head>
   <body>
-    <noscript>
-      <p style="color: red; text-align: center">
-        This quiz requires JavaScript to function. Please enable JavaScript in
-        your browser.
-      </p>
-    </noscript>
-    <header class="hero">
-      <h1>🐾 SAMO Dogs Quiz</h1>
-      <p>Test Your Knowledge About Responsible Dog Hiking Practices</p>
-    </header>
+    <!-- Navigation -->
     <nav aria-label="Main Navigation">
       <ul>
         <li><a href="index.html#intro">Home</a></li>
@@ -43,13 +34,31 @@
         <li><a href="quiz.html" aria-current="page">Test Your Knowledge</a></li>
       </ul>
     </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <img
+        src="images/dogwalk.jpg"
+        alt="Hiker, child, and dog encountering wildlife on a trail"
+        class="hero-image"
+      />
+      <div class="hero-content">
+        <h1>🐾 SAMO Dogs Quiz</h1>
+        <p>Test Your Knowledge About Responsible Dog Hiking Practices</p>
+      </div>
+    </header>
+
     <main>
       <section id="start-screen">
         <p>
           Welcome to the SAMO Dogs Quiz! Test your knowledge about responsible
           dog hiking practices.
         </p>
-        <button id="start-button" aria-label="Start the quiz">
+        <button
+          id="start-button"
+          aria-label="Start the quiz"
+          class="cta-button"
+        >
           Start Quiz
         </button>
       </section>
@@ -57,16 +66,27 @@
       <section id="quiz-section" style="display: none">
         <div id="quiz">
           <div id="question-container"></div>
-          <button id="next-button" aria-label="Go to the next question">
+          <button
+            id="next-button"
+            class="cta-button"
+            aria-label="Go to the next question"
+          >
             Next
           </button>
           <button
             id="restart-button"
             style="display: none"
             aria-label="Restart the quiz"
+            class="cta-button"
           >
             Restart
           </button>
+          <p
+            id="take-again"
+            style="display: none; font-size: 1.2rem; margin-top: 10px"
+          >
+            Want to take the quiz again?
+          </p>
           <div
             id="progress"
             role="progressbar"
@@ -78,17 +98,43 @@
               <div id="progress-bar"></div>
             </div>
           </div>
-          <div id="quiz-result"></div>
-          <a href="index.html" class="cta-button">Back to Home</a>
+          <div
+            id="quiz-result"
+            style="font-size: 1.5rem; font-weight: bold; margin-top: 20px"
+          ></div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; 2025 SAMO Dogs. All rights reserved.</p>
+      <p xmlns:cc="http://creativecommons.org/ns#">
+        This work is marked with
+        <a
+          href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1"
+          target="_blank"
+          rel="license noopener noreferrer"
+          style="display: inline-block"
+          >CC0 1.0 Universal<img
+            style="
+              height: 22px !important;
+              margin-left: 3px;
+              vertical-align: text-bottom;
+            "
+            src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"
+            alt="" /><img
+            style="
+              height: 22px !important;
+              margin-left: 3px;
+              vertical-align: text-bottom;
+            "
+            src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1"
+            alt=""
+        /></a>
+      </p>
     </footer>
 
     <!-- External JavaScript file for quiz functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
     <script src="quiz.js"></script>
   </body>
 </html>
